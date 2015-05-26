@@ -65,8 +65,8 @@ class rundeck::params {
   $auth_users = {}
   $auth_template = 'rundeck/jaas-auth.conf.erb'
 
-  $acl_template = 'rundeck/admin.aclpolicy.erb'
-  $api_template = 'rundeck/apitoken.aclpolicy.erb'
+  $acl_template = 'rundeck/aclpolicy.erb'
+  $api_template = 'rundeck/aclpolicy.erb'
 
   $acl_policies = [
     {
@@ -95,6 +95,7 @@ class rundeck::params {
       'resource_types' => [
         { 'type'  => 'resource', 'rules' => [{'name' => 'allow','rule' => '*'}] },
         { 'type'  => 'project', 'rules' => [{'name' => 'allow','rule' => '*'}] },
+        { 'type'  => 'storage', 'rules' => [{'name' => 'allow','rule' => '*'}] },
       ],
       'by' => {
         'groups'    => ['admin'],
